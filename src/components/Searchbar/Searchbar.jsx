@@ -1,29 +1,39 @@
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useContext, useState } from "react";
+import { carsOperations } from "../../redux/cars";
 
-import axios from "axios";
-
-axios.defaults.baseURL = "https://vpic.nhtsa.dot.gov/api/";
+import { RequestContext } from "../../contexts/requestContext";
 
 export default function Searchbar() {
   const dispatch = useDispatch();
-  const vin = useSelector((state) => state.vin);
-  const listDecoded = useSelector((state) => state.listDecoded);
+  const [lastRequests, setLastRequests] = useContext(RequestContext);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleChange = (event) => {
+    const { value } = event.currentTarget;
+
+    setSearchQuery(value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(event.currentTarget);
+    dispatch(carsOperations.getCarInfoByVin(searchQuery));
+    setLastRequests((lastRequests) => [...lastRequests, searchQuery].slice(-5));
   };
-
-  const addLastDecodeVin = () => {};
+  console.log("lastSearchQuery: ", lastRequests);
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Enter VIN
-        <button type="submit">Decode VIN</button>
-        <input />
+        <button>Decode VIN</button>
+        <input
+          type="text"
+          onChange={handleChange}
+          value={searchQuery}
+          placeholder="17-character VIN number"
+        />
       </label>
     </form>
   );
