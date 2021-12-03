@@ -2,9 +2,6 @@ import DecodeList from "./components/DecodeList";
 import Searchbar from "./components/Searchbar";
 import { useState } from "react";
 import ListMostRecentDecoded from "./components/ListMostRecentDecoded";
-// import "./App.css";
-// import { useSelector } from "react-redux";
-// import { useDispatch } from "react-redux";
 import axios from "axios";
 import { RequestContext } from "./contexts/requestContext";
 
@@ -17,10 +14,12 @@ function App() {
     <div className="App">
       {/* Форма ввода VIN-кода */}
       <RequestContext.Provider value={[lastRequests, setLastRequests]}>
+        <h2>Декодирование номеров VIN</h2>
         <Searchbar />
 
         {/* Список из 5 последних расшифрованных кодов */}
         {/* {vin.length > 0 ? <ListMostRecentDecoded /> : "Search list is empty"} */}
+        <h2>Список последних декодированных номеров VIN</h2>
         <ListMostRecentDecoded />
       </RequestContext.Provider>
       {/* {listDecoded.length > 0 ? (
@@ -33,6 +32,7 @@ function App() {
         "Search list is empty"
       )} */}
       {/* Список результатов расшифровки (значения Variable и Value переменных из массива Results, у которых Value заполнено) */}
+      <h2>Отчёт о запрошенном номере</h2>
       <DecodeList />
     </div>
   );

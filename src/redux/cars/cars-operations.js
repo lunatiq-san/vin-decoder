@@ -7,7 +7,7 @@ const getCarInfoByVin = (vin) => async (dispatch) => {
   dispatch(carsActions.fetchCarInfoByVinRequest());
 
   try {
-    const { data } = await axios.get(`vehicles/decodevin/${vin}?format=json`);
+    const { data } = await axios.get(`vehicles/DecodeVin/${vin}?format=json`);
     const { Results } = data;
 
     dispatch(carsActions.fetchCarInfoByVinSuccess(Results));

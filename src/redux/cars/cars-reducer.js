@@ -6,6 +6,7 @@ const initialState = {
   entities: [],
   error: null,
   isLoading: false,
+  lastRequests: [],
 };
 
 const entities = createReducer(initialState.entities, {

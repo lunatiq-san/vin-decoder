@@ -1,18 +1,19 @@
 import { useSelector } from "react-redux";
 import { carsSelectors } from "../../redux/cars";
-import { v4 as uuidv4 } from "uuid";
 
 export default function DecodeList() {
-  const car = useSelector(carsSelectors.getCar);
+  const carInfo = useSelector(carsSelectors.getCarInfo);
 
   return (
     <>
-      {car && (
+      {carInfo && (
         <ul>
-          {car.map(({ Value, Variable, VariableId }) => {
+          {carInfo.map(({ Value, Variable, VariableId }) => {
             const isValue = Value && Value !== "Not Applicable";
 
-            return isValue && <li key={uuidv4()}>{`${Variable}: ${Value}`}</li>;
+            return (
+              isValue && <li key={VariableId}>{`${Variable}: ${Value}`}</li>
+            );
           })}
         </ul>
       )}

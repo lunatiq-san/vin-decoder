@@ -19,9 +19,8 @@ export default function Searchbar() {
     event.preventDefault();
 
     dispatch(carsOperations.getCarInfoByVin(searchQuery));
-    setLastRequests((lastRequests) => [...lastRequests, searchQuery].slice(-5));
+    setLastRequests([...lastRequests, searchQuery].slice(-5));
   };
-  console.log("lastSearchQuery: ", lastRequests);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -30,6 +29,7 @@ export default function Searchbar() {
         <button>Decode VIN</button>
         <input
           type="text"
+          autoFocus
           onChange={handleChange}
           value={searchQuery}
           placeholder="17-character VIN number"
