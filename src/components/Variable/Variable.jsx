@@ -15,7 +15,6 @@ export default function Variable() {
         const variableInfo = Results.find(
           (variable) => Number(variableId) === variable.ID
         );
-        console.log(variableInfo);
         setVariable(variableInfo);
       })
       .catch((error) => console.log(error));

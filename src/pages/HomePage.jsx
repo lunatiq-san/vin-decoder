@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div className="App">
       <RequestContext.Provider value={[lastRequests, setLastRequests]}>
-        <h2>Декодирование номеров VIN</h2>
+        <h2>Free vehicle history check</h2>
         <Searchbar />
 
         <h2>Список последних декодированных номеров VIN</h2>

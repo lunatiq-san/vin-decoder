@@ -33,8 +33,8 @@ export default function Searchbar() {
           onChange={handleChange}
           value={searchQuery}
           placeholder="17-character VIN number"
-          // pattern="^[a-zA-Z\d]$"
-          // title="VIN code может состоять только из 17 букв и цифр"
+          pattern="[a-zA-Z0-9]{17}"
+          title="The given number is incorrect"
         />
       </label>
     </form>
