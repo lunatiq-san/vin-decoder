@@ -14,7 +14,7 @@ export default function ListMostRecentDecoded() {
     }
 
     setLastRequests(parsedLastRequest);
-  }, []);
+  }, [setLastRequests]);
 
   useEffect(() => {
     localStorage.setItem("lastRequests", JSON.stringify(lastRequests));
