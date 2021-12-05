@@ -9,7 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/variables" element={<Variables />} />
-      <Route path=":variableId" element={<Variable />} />
+      <Route path="/variables/:variableId" element={<Variable />} />
     </Routes>
   );
 }

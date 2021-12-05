@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { Outlet } from "react-router";
 
 export default function Variables() {
   const [variablesList, setVariablesList] = useState([]);
@@ -21,13 +22,16 @@ export default function Variables() {
         {variablesList &&
           variablesList.map(
             ({ DataType, Description, GroupName, ID, Name }) => (
-              <li key={ID}>
-                <p>DataType: {DataType}</p>
-                <p>Description: {Description}</p>
-                <p>GroupName: {GroupName}</p>
-                <p>ID: {ID}</p>
-                <p>Name: {Name}</p>
-              </li>
+              <Fragment key={ID}>
+                <li>
+                  <p>DataType: {DataType}</p>
+                  <p>Description: {Description}</p>
+                  <p>GroupName: {GroupName}</p>
+                  <p>ID: {ID}</p>
+                  <p>Name: {Name}</p>
+                </li>
+                <Outlet />
+              </Fragment>
             )
           )}
       </ul>
