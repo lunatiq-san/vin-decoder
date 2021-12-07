@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ReactHtmlParser from "react-html-parser";
 import Loader from "react-loader-spinner";
 
 import styles from "./Variables.module.css";
@@ -38,9 +37,7 @@ export default function Variables() {
                   </p>
                   <p className={styles.text}>
                     <span className={styles.textKey}>Description:</span>
-                    <p className={styles.textValue}>
-                      {ReactHtmlParser(Description)}
-                    </p>
+                    <span className={styles.textValue}>{Description}</span>
                   </p>
                   <p className={styles.text}>
                     <span className={styles.textKey}>GroupName:</span>
