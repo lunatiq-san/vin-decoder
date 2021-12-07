@@ -7,6 +7,10 @@
   color: var(--primaryTextColor);
 }
 
+.loader {
+  text-align: center;
+}
+
 @media screen and (min-width: 1280px) {
   .title {
     font-size: 30px;
