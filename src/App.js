@@ -4,16 +4,16 @@ import { ToastContainer, Slide } from "react-toastify";
 import Variables from "./components/Variables";
 import Variable from "./components/Variable";
 import HomePage from "./pages/HomePage";
-import "react-toastify/dist/ReactToastify.css";
 import Container from "./components/Container";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <Container>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/variables" element={<Variables />} />
-        <Route path="/variables/:variableId" element={<Variable />} />
+        <Route path="/" index element={<HomePage />} />
+        <Route path="/variables" exact element={<Variables />} />
+        <Route path="/variables/:variableId" exact element={<Variable />} />
       </Routes>
       <ToastContainer
         position="top-center"
