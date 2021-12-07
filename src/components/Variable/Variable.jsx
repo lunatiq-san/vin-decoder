@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
-import ReactHtmlParser from "react-html-parser";
 
 import styles from "./Variable.module.css";
 import Loader from "react-loader-spinner";
@@ -55,9 +54,7 @@ export default function Variable() {
               </li>
               <li className={styles.item}>
                 <span className={styles.itemKey}>Description:</span>
-                <span className={styles.description}>
-                  {ReactHtmlParser(Description)}
-                </span>
+                <span className={styles.description}>{Description}</span>
               </li>
               <li className={styles.item}>
                 <span className={styles.itemKey}>GroupName:</span>
