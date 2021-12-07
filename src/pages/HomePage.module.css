@@ -1,0 +1,12 @@
+.title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primaryTextColor);
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    font-size: 30px;
+  }
+}

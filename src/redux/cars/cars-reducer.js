@@ -3,10 +3,9 @@ import { createReducer } from "@reduxjs/toolkit";
 import carsActions from "./cars-actions";
 
 const initialState = {
-  entities: [],
+  entities: "",
   error: null,
   isLoading: false,
-  lastRequests: [],
 };
 
 const entities = createReducer(initialState.entities, {

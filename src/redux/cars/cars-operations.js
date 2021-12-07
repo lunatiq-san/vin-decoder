@@ -16,8 +16,6 @@ const getCarInfoByVin = (vin) => async (dispatch) => {
   }
 };
 
-// const getVehicleVariablesList = () => async (dispatch) => {};
-
 const carsOperations = { getCarInfoByVin };
 
 export default carsOperations;

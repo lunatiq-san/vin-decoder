@@ -1,24 +1,24 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { RequestContext } from "../contexts/requestContext";
 import DecodeList from "../components/DecodeList";
 import Searchbar from "../components/Searchbar";
 import ListMostRecentDecoded from "../components/ListMostRecentDecoded";
+import { carsSelectors } from "../redux/cars";
+import styles from "./HomePage.module.css";
 
 export default function HomePage() {
   const [lastRequests, setLastRequests] = useState([]);
+  const carInfo = useSelector(carsSelectors.getCarInfo);
 
   return (
-    <div className="App">
+    <main className="HomePage">
       <RequestContext.Provider value={[lastRequests, setLastRequests]}>
-        <h2>Free vehicle history check</h2>
+        <h1 className={styles.title}>Free vehicle history check</h1>
         <Searchbar />
-
-        <h2>Список последних декодированных номеров VIN</h2>
         <ListMostRecentDecoded />
       </RequestContext.Provider>
-
-      <h2>Отчёт о запрошенном номере</h2>
-      <DecodeList />
-    </div>
+      {carInfo ? <DecodeList /> : null}
+    </main>
   );
 }

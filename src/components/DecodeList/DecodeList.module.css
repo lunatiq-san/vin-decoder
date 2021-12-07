@@ -1,0 +1,42 @@
+.title {
+  line-height: 2;
+  font-weight: 500;
+  color: var(--primaryLightColor);
+  background-color: var(--accentColor);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+
+  line-height: 1.5;
+  /* border: 1px solid var(--accentColor); */
+}
+
+.item:nth-child(even) {
+  background-color: var(--primaryLightColor);
+}
+
+.variable {
+  text-align: left;
+}
+
+.value {
+  text-align: right;
+}
+
+@media screen and (min-width: 1280px) {
+  .decodeList {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .item {
+    font-size: 18px;
+  }
+}

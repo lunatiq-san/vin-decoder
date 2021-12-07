@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { carsOperations } from "../../redux/cars";
 
 import { RequestContext } from "../../contexts/requestContext";
+import styles from "./Searchbar.module.css";
 
 export default function Searchbar() {
   const dispatch = useDispatch();
@@ -23,20 +24,23 @@ export default function Searchbar() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Enter VIN
-        <button>Decode VIN</button>
-        <input
-          type="text"
-          autoFocus
-          onChange={handleChange}
-          value={searchQuery}
-          placeholder="17-character VIN number"
-          pattern="[a-zA-Z0-9]{17}"
-          title="The given number is incorrect"
-        />
-      </label>
-    </form>
+    <section>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <label className={styles.label}>
+          <p className={styles.title}>Enter VIN Number</p>
+          <input
+            className={styles.input}
+            type="text"
+            autoFocus
+            onChange={handleChange}
+            value={searchQuery}
+            placeholder="17-character VIN number"
+            pattern="[a-zA-Z0-9]{17}"
+            title="The given number is incorrect"
+          />
+          <button className={styles.btn}>Decode</button>
+        </label>
+      </form>
+    </section>
   );
 }

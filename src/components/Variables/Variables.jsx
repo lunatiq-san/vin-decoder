@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
-import { Outlet } from "react-router";
 
 export default function Variables() {
   const [variablesList, setVariablesList] = useState([]);
@@ -30,7 +29,6 @@ export default function Variables() {
                   <p>ID: {ID}</p>
                   <p>Name: {Name}</p>
                 </li>
-                <Outlet />
               </Fragment>
             )
           )}
