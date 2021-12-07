@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
-import Container from "../Container";
 
 import styles from "./Variable.module.css";
 import Loader from "react-loader-spinner";
@@ -34,7 +33,7 @@ export default function Variable() {
   }, [variableId]);
 
   return (
-    <Container>
+    <>
       {variable !== undefined ? (
         <section className={styles.variable}>
           <h2 className={styles.title}>Variable</h2>
@@ -75,6 +74,6 @@ export default function Variable() {
       ) : (
         <p>Variable with ID: {variableId} not found</p>
       )}
-    </Container>
+    </>
   );
 }

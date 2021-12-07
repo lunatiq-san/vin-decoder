@@ -9,12 +9,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    // <Container>
     <>
       <Routes>
-        <Route path="/" index element={<HomePage />} />
-        <Route path="variables" element={<Variables />} />
-        <Route path="variables/:variableId" element={<Variable />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/vin-decode/variables" element={<Variables />} />
+        <Route path="/variables/:variableId" element={<Variable />} />
       </Routes>
       <ToastContainer
         position="top-center"
@@ -29,7 +28,6 @@ function App() {
         pauseOnHover
       />
     </>
-    // </Container>
   );
 }
 
