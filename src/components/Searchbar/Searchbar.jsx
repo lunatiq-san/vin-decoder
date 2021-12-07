@@ -24,7 +24,7 @@ export default function Searchbar() {
   };
 
   return (
-    <section>
+    <section className={styles.searchbar}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.label}>
           <p className={styles.title}>Enter VIN Number</p>
