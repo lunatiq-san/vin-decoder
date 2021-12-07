@@ -2,6 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
+import ReactHtmlParser from "react-html-parser";
+
+import styles from "./Variable.module.css";
 
 export default function Variable() {
   const { variableId } = useParams();
@@ -29,14 +32,33 @@ export default function Variable() {
   return (
     <>
       {variable !== undefined ? (
-        <>
-          Variable:
-          <p>DataType: {DataType}</p>
-          <p>Description: {Description}</p>
-          <p>GroupName: {GroupName}</p>
-          <p>ID: {ID}</p>
-          <p>Name: {Name}</p>
-        </>
+        <section className={styles.variable}>
+          <h2 className={styles.title}>Variable</h2>
+          <ul className={styles.list}>
+            <li className={styles.item}>
+              <span className={styles.itemKey}>DataType:</span>
+              <span className={styles.itemValue}>{DataType}</span>
+            </li>
+            <li className={styles.item}>
+              <span className={styles.itemKey}>Description:</span>
+              <span className={styles.description}>
+                {ReactHtmlParser(Description)}
+              </span>
+            </li>
+            <li className={styles.item}>
+              <span className={styles.itemKey}>GroupName:</span>
+              <span className={styles.itemValue}>{GroupName}</span>
+            </li>
+            <li className={styles.item}>
+              <span className={styles.itemKey}>ID:</span>
+              <span className={styles.itemValue}>{ID}</span>
+            </li>
+            <li className={styles.item}>
+              <span className={styles.itemKey}>Name:</span>
+              <span className={styles.itemValue}>{Name}</span>
+            </li>
+          </ul>
+        </section>
       ) : (
         <p>Variable with ID: {variableId} not found</p>
       )}
