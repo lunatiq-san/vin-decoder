@@ -9,7 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <Container>
+    // <Container>
+    <>
       <Routes>
         <Route path="/" index element={<HomePage />} />
         <Route path="/variables" exact element={<Variables />} />
@@ -27,7 +28,8 @@ function App() {
         draggable
         pauseOnHover
       />
-    </Container>
+    </>
+    // </Container>
   );
 }
 

@@ -7,6 +7,7 @@ import ListMostRecentDecoded from "../components/ListMostRecentDecoded";
 import { carsSelectors } from "../redux/cars";
 import styles from "./HomePage.module.css";
 import Loader from "react-loader-spinner";
+import Container from "../components/Container";
 
 export default function HomePage() {
   const [lastRequests, setLastRequests] = useState([]);
@@ -14,22 +15,24 @@ export default function HomePage() {
   const isLoading = useSelector(carsSelectors.isLoading);
 
   return (
-    <main className="HomePage">
-      <RequestContext.Provider value={[lastRequests, setLastRequests]}>
-        <h1 className={styles.title}>Free vehicle history check</h1>
-        <Searchbar />
-        <ListMostRecentDecoded />
-      </RequestContext.Provider>
-      {isLoading && (
-        <Loader
-          type="Puff"
-          color="#00adb5"
-          height={50}
-          width={50}
-          className={styles.loader}
-        />
-      )}
-      {carInfo ? <DecodeList /> : null}
-    </main>
+    <Container>
+      <main className="HomePage">
+        <RequestContext.Provider value={[lastRequests, setLastRequests]}>
+          <h1 className={styles.title}>Free vehicle history check</h1>
+          <Searchbar />
+          <ListMostRecentDecoded />
+        </RequestContext.Provider>
+        {isLoading && (
+          <Loader
+            type="Puff"
+            color="#00adb5"
+            height={50}
+            width={50}
+            className={styles.loader}
+          />
+        )}
+        {carInfo ? <DecodeList /> : null}
+      </main>
+    </Container>
   );
 }
