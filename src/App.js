@@ -11,9 +11,9 @@ function App() {
   return (
     <Container>
       <Routes>
-        <Route path="/" index element={<HomePage />} />
-        <Route path="/variables" exact element={<Variables />} />
-        <Route path="/variables/:variableId" exact element={<Variable />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/variables" element={<Variables />} />
+        <Route path="/variables/:variableId" element={<Variable />} />
       </Routes>
       <ToastContainer
         position="top-center"
