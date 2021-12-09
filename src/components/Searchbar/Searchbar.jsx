@@ -22,6 +22,7 @@ export default function Searchbar() {
     dispatch(carsOperations.getCarInfoByVin(searchQuery));
     setLastRequests([...lastRequests, searchQuery].slice(-5));
   };
+  console.log(lastRequests);
 
   return (
     <section className={styles.searchbar}>
