@@ -1,4 +1,4 @@
-.variable {
+.variables {
   text-align: center;
 }
 
@@ -10,31 +10,30 @@
 }
 
 .list {
+  margin: -5px;
   font-size: 12px;
   line-height: 1.5;
-  border: 1px solid var(--primaryLightColor);
 }
 
 .item {
-  display: flex;
-  justify-content: space-between;
+  margin: 5px;
+  border: 1px solid var(--accentColor);
 }
 
-.item:nth-child(even) {
+.text {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: var(--primaryTextColor);
+}
+
+.text:nth-child(even) {
   background-color: var(--primaryLightColor);
 }
 
-.itemKey {
-  padding-left: 5px;
-}
-
-.itemValue {
-  padding-right: 5px;
-}
-
-.description {
+.textValue {
   text-align: right;
-  padding-right: 5px;
   overflow-wrap: anywhere;
 }
 

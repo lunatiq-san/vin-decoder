@@ -16,6 +16,16 @@ const getCarInfoByVin = (vin) => async (dispatch) => {
   }
 };
 
-const carsOperations = { getCarInfoByVin };
+const listMostRecentDecoded = (vins) => async (dispatch) => {
+  dispatch(carsActions.listMostRecentDecodedRequest());
+
+  try {
+    dispatch(carsActions.listMostRecentDecodedSuccess(vins));
+  } catch (error) {
+    dispatch(carsActions.listMostRecentDecodedError(error));
+  }
+};
+
+const carsOperations = { getCarInfoByVin, listMostRecentDecoded };
 
 export default carsOperations;

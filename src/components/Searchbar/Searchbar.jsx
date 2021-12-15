@@ -19,8 +19,10 @@ export default function Searchbar() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    dispatch(carsOperations.getCarInfoByVin(searchQuery));
-    setLastRequests([...lastRequests, searchQuery].slice(-5));
+    if (searchQuery.trim()) {
+      dispatch(carsOperations.getCarInfoByVin(searchQuery));
+      setLastRequests([...lastRequests, searchQuery].slice(-5));
+    }
   };
 
   return (

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { RequestContext } from "../contexts/requestContext";
-import DecodeList from "../components/DecodeList";
-import Searchbar from "../components/Searchbar";
-import ListMostRecentDecoded from "../components/ListMostRecentDecoded";
-import { carsSelectors } from "../redux/cars";
+import { RequestContext } from "../../contexts/requestContext";
+import DecodeList from "../../components/DecodeList";
+import Searchbar from "../../components/Searchbar";
+import ListMostRecentDecoded from "../../components/ListMostRecentDecoded";
+import { carsSelectors } from "../../redux/cars";
 import styles from "./HomePage.module.css";
 import Loader from "react-loader-spinner";
 
@@ -20,6 +20,7 @@ export default function HomePage() {
         <Searchbar />
         <ListMostRecentDecoded />
       </RequestContext.Provider>
+
       {isLoading && (
         <Loader
           type="Puff"
@@ -29,6 +30,7 @@ export default function HomePage() {
           className={styles.loader}
         />
       )}
+
       {carInfo ? <DecodeList /> : null}
     </main>
   );
